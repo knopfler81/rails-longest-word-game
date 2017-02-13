@@ -1,8 +1,10 @@
 <h1>Longest Word</h1>
 
 <h3>Your word: <%= @attempt %></h3>
-<h2><%= @points %></h2>
-<h4>Traduction: <%= @run[:translation] %></h4>
-<h4>Trouvé en <%= @run[:time] %> secondes</h4>
 
-
+<ul>
+  <li><%= @results[:time] %></li>
+  <li><%= @results[:translation] %></li>
+  <li><%= @results[:score] %></li>
+  <li><%= @results[:message] %></li>
+</ul>
