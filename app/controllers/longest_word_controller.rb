@@ -4,15 +4,17 @@ class LongestWordController < ApplicationController
 
   def game
     @grid = generate_grid.join(' ')
+    @start_time = Time.now
   end
 
   def score
+    @start_time = params[:start_time].to_time
+    @end_time   = Time.now
     @attempt = params[:attempt]
     grid = params[:grid]
     @run = run_game(@attempt, grid, @start_time, @end_time)
     @points = score_and_message(@attempt, @run[:translation], grid, @run[:time])
   end
-
 
 
   private
@@ -32,8 +34,7 @@ class LongestWordController < ApplicationController
 
   def run_game(attempt, grid, start_time, end_time)
     grid = params[:grid]
-    @start_time = Time.now
-    @end_time   = Time.now
+
     result  = { time: @end_time - @start_time }
 
     result[:translation] = get_translation(attempt)
