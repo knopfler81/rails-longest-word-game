@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get  'game'    => 'longest_word#game'
+  post 'score'   => 'longest_word#score'
+  get  'score'   => 'longest_word#score'
+
 end
